@@ -6,7 +6,7 @@ Nosso objetivo é a criação de um *Recurso Educacional Aberto*(REA) que possa 
 
 Um pré processamento inicial do dados envolveu classificar esses locais em cinco categorias - -, assim como registrar sua respectiva latitude e longitude, para que um paradigma de representação visual pudesse ser adotado - aqui, utilizaremos as coordenadas geográficas dos pontos para representá-los num cartograma e exibir interativamente algumas informações, tais como:
 
-A aplicação encontra-se disponível em: .
+A aplicação encontra-se disponível em: <https://chicodias.shinyapps.io/activitymap/>.
 
 ## Implementação
 
