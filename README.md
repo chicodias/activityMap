@@ -1,6 +1,6 @@
 ---
 author: Francisco Rosa Dias de Miranda
-title:  Mapa da Atividade - Osasco(SP)
+title:  Mapa da Atividade - Osasco (SP)
 output:
   pdf_document: default
   
@@ -15,22 +15,43 @@ Este repositório contém o código em linguagem *R*, implementado com auxílio 
 
 ## Análise Exploratória
 
-Neste trabalho, recebemos um conjunto de dados com o mapeamento geografico de pontos de interesse em Osasco(SP), classificados como **positivos** ou **negativos** pelos alunos. As figuras 1 e 2 ilustram a distribuição de alunos por classe e bairro. Deixamos apenas 6 bairros para não poluir o gráfico.
-
-![Alunos de cada classe](imagens/sala.jpeg)
+Neste trabalho, recebemos um conjunto de dados com o mapeamento geografico de pontos de interesse em Osasco (SP), classificados como **positivos** ou **negativos** pelos alunos. A Figura 1  ilustra a distribuição de alunos por classe e bairro. Deixamos apenas os 6 bairros mais mencionados.
 
 ![Alunos de cada bairro](imagens/bairro.png)
 
-A partir dos 3 pontos positivos e negativos escolhidos pelos alunos, utilizamos essas informações para gerar um corpus textual, pré-processar e exibir as respectivas nuvens de palavras.
+Além disso, os **pontos positivos** escolhidos pelos alunos foram recodificados em cinco principais **categorias**, conforme ilustrado na Tabela abaixo:
+
+| **Categoria** | **Respostas Consideradas** |
+|:-:|:-:|
+| Lugares para exercícios físicos, praças  e áreas verdes | Academia, praças com equipamentos para condicionamento físico, campo de futebol de várzea, ginásio, clubes com piscina, pista  de skate, árvores, borboletário, mata, parques, Pico do Jaraguá |
+| Condições de  infraestrutura | Proximidade e variedade de pontos de comércio, pontos comerciais,  lanchonetes, feira, garagem de ônibus pontos de ônibus, pizzarias, shopping, sorveteria, pavimentação das ruas boas |
+| Rede de acolhimento e  proteção | Igreja, respeito entre moradores, SESC Osasco |
+| Características  identificadas | bairro calmo, boa localização, passear no centro,  design da igreja, grafites, vista de casa, ruas agradáveis |
+| Presença de Equipamentos  Públicos | Pontos de Cultura, CEUS, ecopontos, escolas, estádios, hospitais, postos de saúde, ou teatro próximos | 
+ 
+A Figura 2 ilustra a distribuição das respostas entre as categorias que acabamos de descrever.
+
+![Tipos de locais](imagens/locais.png)
+
+## Nuvem de Palavras
+
+A partir dos 3 pontos positivos e negativos escolhidos pelos alunos, as respostas foram agrupadas e técnicas de mineiração de texto foram utilizadas para gerar um corpus textual, pré-processar e exibir as respectivas nuvens de palavras.
+
+Dentre as funções de pré-processamento podemos citar: remoção de palavras comuns (stop words), pontuação, números e palavras similares. Maiores detalhes sobre o *pipeline* pre-processamento utilizado pode ser encontrado no arquivo `analise_dados.R`.
+
+As Figuras 3 e 4 ilustram as nuvens de palavras obtidas através do processo.
 
 ![Pontos positivos elencados pelos alunos](imagens/wordcloud-positivo.png)
 
 ![Pontos negativos elencados pelos alunos](imagens/wordcloud-negativo.png)
 
+Para finalizar essa etapa, verificamos quais palavras possuíam mais correlação com a palavra encontrada nas respostas negativas "falta". O processo é ilustrado na Figura 5.
+
+![Palavras correlacionadas com "falta"](imagens/falta.jpeg)
 
 # Construção do mapa
 
-Um pré processamento inicial realizado pela pesquisadora envolveu classificar alguns desses locais em três principais categorias - Trabalho, Afetivo, ou Desgaste em Saude; assim como registrar a respectiva latitude e longitude de cada local.
+Outro pré processamento nos dados realizado pela pesquisadora envolveu classificar alguns dos locais levantados pelos alunos em três principais categorias - Trabalho, Afetivo, ou Desgaste em Saude; assim como registrar a respectiva latitude e longitude de cada local.
 
 Esse tipo de codificação nos favorece para que um certo paradigma de representação visual possa ser adotado aqui - estamos interessados em utilizar as coordenadas geográficas dos pontos para representá-los num cartograma e exibir interativamente algumas informações: nome do local, endereço e tipo de ocorrência registrada.
 
@@ -42,13 +63,13 @@ A aplicação encontra-se disponível em: <https://chicodias.shinyapps.io/activi
 
 #### Análise dos dados
 
-- Importamos o questinário do arquivo `quest.xlsx` para o ambiente do R
-- Os gráficos gerados aqui estão disponíveis no arquivo `analise_dados.R`
+- Importamos o questinário do arquivo `quest.xlsx` para o ambiente do R,
+- Os gráficos gerados aqui estão disponíveis no arquivo `analise_dados.R`.
 
 
 #### Mapa interativo
 
-- O arquivo `dados.xlsx` contém os dados de nosso mapa
+- O arquivo `dados.xlsx` contém os dados de nosso mapa,
 - O arquivo `app.r` contém o código da aplicação em *shiny* responsável por gerar o site. Nele, utilizamos a biblioteca *leaflet* para renderizar o mapa e plotar os pontos de interesse.
 
 ## Licenças
@@ -57,6 +78,8 @@ Todo o conteúdo utilizado possui licença em código aberto, exceto onde explic
 
 ## Referências
 
+- R for Data Science <https://r4ds.had.co.nz/index.html>
+  
 - Cookbook for R <http://www.cookbook-r.com/>
 
 - Learn Shiny <https://shiny.rstudio.com/tutorial/#written-tutorials>
@@ -65,5 +88,4 @@ Todo o conteúdo utilizado possui licença em código aberto, exceto onde explic
 
 - Wordcloud2 introduction <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
 
-
-
+- Transformations on Corpora <https://www.rdocumentation.org/packages/tm/versions/0.7-7/topics/tm_map>
