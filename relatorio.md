@@ -1,7 +1,11 @@
-
-#Mapa de lugares de interesse na cultura e na paisagem de Osasco
-## Francisco Rosa Dias de Miranda[^*]
-[^*]: Graduando no Bacharelado em Estatística e Ciência de Dados do Instituto de Ciências Matemáticas e de Computação da Universidade de São Paulo (ICMC - USP).
+---
+author: Francisco Rosa Dias de Miranda[^1]
+title:  Mapa de lugares de interesse na cultura e na paisagem de Osasco
+output:
+  pdf_document: default
+  
+---
+[^1]: Graduando no Bacharelado em Estatística e Ciência de Dados do Instituto de Ciências Matemáticas e de Computação da Universidade de São Paulo (ICMC - USP).
 
 Este repositório contém o código em linguagem *R*, implementado com auxílio das biblitecas *shiny* e *leaflet*, de um site interativo de um mapa da cidade de Osasco - SP, com pontos de interesse elencados através de um questionário aplicado a 217 alunos da E.E. Prof. Alcyr de Oliveira Ponciúncula, na disciplina de Sociologia, aplicado pela Profa. Maria Cecília Dias da Cruz.
 
