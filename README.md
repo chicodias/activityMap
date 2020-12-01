@@ -1,10 +1,8 @@
----
-author: Francisco Rosa Dias de Miranda[^1]
-title:  Mapa de lugares de interesse na cultura e na paisagem de Osasco (SP)
-output:
-  pdf_document: default
-  
----
+# Mapa de lugares de interesse na cultura e na paisagem de Osasco (SP)
+
+### Francisco Rosa Dias de Miranda[^1]  
+
+
 [^1]: Graduando no Bacharelado em Estatística e Ciência de Dados do Instituto de Ciências Matemáticas e de Computação da Universidade de São Paulo (ICMC - USP).
 
 Este repositório contém o código em linguagem *R*, implementado com auxílio das biblitecas *shiny* e *leaflet*, de um site interativo de um mapa da cidade de Osasco - SP, com pontos de interesse elencados através de um questionário aplicado a 217 alunos da E.E. Prof. Alcyr de Oliveira Ponciúncula, na disciplina de Sociologia, aplicado pela Profa. Maria Cecília Dias da Cruz.
@@ -89,5 +87,3 @@ Todo o conteúdo utilizado possui licença GNU GPL 3. Mais informações podem s
 - Leaflet for R <https://rstudio.github.io/leaflet/>
 
 - Wordcloud2 introduction <https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html>
-
-- Transformations on Corpora <https://www.rdocumentation.org/packages/tm/versions/0.7-7/topics/tm_map>
