@@ -16,10 +16,18 @@ df2 %>% ggplot() + geom_bar(aes(sala)) + theme_pubr() + ylab("número de alunos"
 df2 %>% ggplot() + geom_bar(aes(gênero)) + theme_pubr() 
 
 # Colapsando os bairros em seis categorias
-df2$bairro <- df2$bairro %>% as_factor() %>%  fct_lump(5) 
+df2$bairro <- gsub("Vila Menk","Vila Menck",df2$bairro) %>% as_factor() %>%  fct_lump(4,other_level = "Outros") 
 
 # Numero de alunos por bairro
-df2 %>% ggplot() + geom_bar(aes(bairro)) + theme_pubr() +  ylab("número de alunos") + coord_flip()
+
+value <- fct_count(df2$bairro, sort = T, prop = T)
+ggplot(value, aes(f, n)) +  
+  geom_bar(position="dodge", stat="identity", color="black") +
+  geom_text(aes(x=f, y=n, label = scales::percent(p), hjust=-.2), position = position_dodge(width=0.9)) +
+  coord_flip() + theme_pubr()
+
+
+
 
 # Total de pontos positivos
 pontos <- c(df2$pontos1,df2$positivos2,df2$positivos3)
@@ -34,7 +42,7 @@ p %>% ggplot +geom_bar (aes(x)) + coord_flip() +
                               "Equipamentos \nPúblicos")) + theme_pubr() + xlab(" ") + ylab("Menções")
 
 
-grid.arrange(q,r,ncol=2)
+#grid.arrange(q,r,ncol=2)
 # vamos concatenar os pontos elencados pelos alunos, pre processar e 
 # exibir a wordcloud
 
@@ -95,16 +103,38 @@ c <-TermDocumentMatrix(negativos)
 # encontrar quais as palavras do texto estão associadas com "best"
 faa <- findAssocs(c, terms = c("falta","rua","ruas"), corlimit = 0.14)
 
-faa <- findAssocs(TDF(positivos), terms = c("praça","casa","parque"), corlimit = 0.14)
+#faa <- findAssocs(TDF(positivos), terms = c("praça","casa","parque"), corlimit = 0.14)
 
 cors <- tibble(Palavra = names(faa$falta),Frequência = as.numeric(faa$falta))
 
+
+ggdotchart(dfm, x = "name", y = "mpg",
+           color = "cyl",                                # Color by groups
+           palette = c("#00AFBB", "#E7B800", "#FC4E07"), # Custom color palette
+           sorting = "descending",                       # Sort value in descending order
+           add = "segments",                             # Add segments from y = 0 to dots
+           rotate = TRUE,                                # Rotate vertically
+           group = "cyl",                                # Order by groups
+           dot.size = 6,                                 # Large dot size
+           label = round(dfm$mpg),                        # Add mpg values as dot labels
+           font.label = list(color = "white", size = 9, 
+                             vjust = 0.5),               # Adjust label parameters
+           ggtheme = theme_pubr()                        # ggplot2 theme
+)
+
+
 cors %>%  ggdotchart("Palavra", "Frequência", 
                      sorting = "descending",                       # Sort value in descending order
+                     label = scales::percent(cors$Frequência,accuracy = 1),
+                     font.label = list(color = "#eeeeee", size = 9, 
+                                       vjust = 0.5),
+                     #add = "segments",
+                     dot.size = 8, 
+                     color = "#222222",
                      rotate = TRUE,                                # Rotate vertically
-                     dot.size = 2,                                 # Large dot size
-                     y.text.col = TRUE,                            # Color y text by groups
+                                                    # Large dot size
+                     
                      ggtheme = theme_pubr()                        # ggplot2 theme
 )+
-  ggtitle("Falta...") +
-  theme_cleveland()                                      # Add dashed grids 
+  theme_cleveland()+
+  ggtitle("Falta...")

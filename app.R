@@ -72,12 +72,15 @@ server <- function(input, output) {
             markerColor = getColor(df)
         )
         
+        scaleBarOptions(maxWidth = 100, metric = TRUE, imperial = FALSE,
+                        updateWhenIdle = TRUE)
         
         
         leafletProxy("map", data = df) %>% 
             clearMarkers() %>% 
             addAwesomeMarkers(~Longitude, ~Latitude, label = ~Nome, icon = icons) %>% 
-            addLegend("bottomright",labels = levels(df$tipo), colors = c("red", "green", "orange" ))
+            addLegend("bottomright",labels = levels(df$tipo), colors = c("red", "green", "orange" )) %>% 
+            addScaleBar(position = "bottomleft", options = scaleBarOptions())
         
     })
     

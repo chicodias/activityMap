@@ -1,12 +1,13 @@
 ---
-author: Francisco Rosa Dias de Miranda
-title:  Mapa da Atividade - Osasco (SP)
+author: Francisco Rosa Dias de Miranda[^1]
+title:  Mapa de lugares de interesse na cultura e na paisagem de Osasco (SP)
 output:
   pdf_document: default
   
 ---
+[^1]: Graduando no Bacharelado em Estatística e Ciência de Dados do Instituto de Ciências Matemáticas e de Computação da Universidade de São Paulo (ICMC - USP).
 
-Este repositório contém o código em linguagem *R*, implementado com auxílio das biblitecas *shiny* e *leaflet*, de um site interativo de um mapa da cidade de Osasco - SP, com pontos de interesse elencados através de um questionário aplicado alunos da E.E. Prof. Alcyr de Oliveira Ponciúncula, na disciplina de Sociologia, aplicado pela Profa. Maria Cecília Dias da Cruz.
+Este repositório contém o código em linguagem *R*, implementado com auxílio das biblitecas *shiny* e *leaflet*, de um site interativo de um mapa da cidade de Osasco - SP, com pontos de interesse elencados através de um questionário aplicado a 217 alunos da E.E. Prof. Alcyr de Oliveira Ponciúncula, na disciplina de Sociologia, aplicado pela Profa. Maria Cecília Dias da Cruz.
 
 ## Objetivo 
 
@@ -15,7 +16,7 @@ Este repositório contém o código em linguagem *R*, implementado com auxílio 
 
 ## Análise Exploratória
 
-Neste trabalho, recebemos um conjunto de dados com o mapeamento geografico de pontos de interesse em Osasco (SP), classificados como **positivos** ou **negativos** pelos alunos. A Figura 1  ilustra a distribuição de alunos por classe e bairro. Deixamos apenas os 6 bairros mais mencionados.
+Neste trabalho, recebemos um conjunto de dados com o mapeamento geográfico de pontos de interesse em Osasco (SP), classificados como **positivos** ou **negativos** pelos alunos. A Figura 1  ilustra a distribuição de alunos por classe e bairro. Deixamos apenas os 6 bairros mais mencionados.
 
 ![Alunos de cada bairro](imagens/bairro.png)
 
@@ -47,7 +48,8 @@ As Figuras 3 e 4 ilustram as nuvens de palavras obtidas através do processo.
 
 Para finalizar essa etapa, verificamos quais palavras possuíam mais correlação com a palavra encontrada nas respostas negativas "falta". O processo é ilustrado na Figura 5.
 
-![Palavras correlacionadas com "falta"](imagens/falta.jpeg)
+![Palavras correlacionadas com "falta"](imagens/falta.png)
+
 
 # Construção do mapa
 
@@ -74,7 +76,7 @@ A aplicação encontra-se disponível em: <https://chicodias.shinyapps.io/activi
 
 ## Licenças
 
-Todo o conteúdo utilizado possui licença em código aberto, exceto onde explicitamente mencionado.
+Todo o conteúdo utilizado possui licença GNU GPL 3. Mais informações podem ser consultadas em <https://www.gnu.org/licenses/quick-guide-gplv3.pt-br.html>.
 
 ## Referências
 
